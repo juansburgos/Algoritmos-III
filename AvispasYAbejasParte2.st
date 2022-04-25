@@ -68,18 +68,66 @@ cantidadDePolillas
 cantidadDePolillas: cantidad
 	cantidadDePolillas:= cantidad.! !
 
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:19:24'!
+decreceCantidadDeHuevosConLaFirmaGeneticaDeOriana
+	cantidadDeHuevosConLaFirmaGeneticaDeOriana:=cantidadDeHuevosConLaFirmaGeneticaDeOriana - 1.! !
 
-!HabitatDeAvispas class methodsFor: '--** private fileout/in **--' stamp: 'JSB 4/25/2022 10:52:51'!
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:19:38'!
+decreceCantidadDeHuevosConLaFirmaGeneticaDePolly
+	cantidadDeHuevosConLaFirmaGeneticaDePolly:=cantidadDeHuevosConLaFirmaGeneticaDePolly - 1! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:04:56'!
+decreceCantidadDeOrugas
+	cantidadDeOrugas:= cantidadDeOrugas - 1! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:16:47'!
+decreceCantidadDePolillas
+	cantidadDePolillas:= cantidadDePolillas - 1! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:30:02'!
+hayHuevosConLaFirmaGeneticaDeOriana
+	cantidadDeHuevosConLaFirmaGeneticaDeOriana >= 1 ifTrue: [^true] ifFalse: [^false]! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:30:19'!
+hayHuevosConLaFirmaGeneticaDePolly
+	cantidadDeHuevosConLaFirmaGeneticaDePolly >= 1 ifTrue: [^true] ifFalse: [^false]! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 11:41:11'!
+hayOrugas
+	cantidadDeOrugas >= 1 ifTrue: [^true] ifFalse: [^false]! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:14:57'!
+hayPolillas
+	cantidadDePolillas >= 1 ifTrue: [^true] ifFalse: [^false]! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:01:57'!
+incrementaCantidadDeHuevosConLaFirmaGeneticaDeLara
+	cantidadDeHuevosConLaFirmaGeneticaDeLara:=cantidadDeHuevosConLaFirmaGeneticaDeLara + 1.! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 11:48:10'!
+incrementaCantidadDeHuevosConLaFirmaGeneticaDeOriana
+	cantidadDeHuevosConLaFirmaGeneticaDeOriana:=cantidadDeHuevosConLaFirmaGeneticaDeOriana + 1.! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:02:18'!
+incrementaCantidadDeHuevosConLaFirmaGeneticaDePolly
+	cantidadDeHuevosConLaFirmaGeneticaDePolly:=cantidadDeHuevosConLaFirmaGeneticaDePolly + 1! !
+
+!HabitatDeAvispas class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 11:47:26'!
+incrementaCantidadDeHuevosDeAvispas
+	cantidadDeHuevosDeAvispas:=cantidadDeHuevosDeAvispas+1.! !
+
+
+!HabitatDeAvispas class methodsFor: '--** private fileout/in **--' stamp: 'JSB 4/25/2022 12:48:07'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
 	cantidadDeHuevosConLaFirmaGeneticaDePolly := 0.
 	cantidadDeHuevosConLaFirmaGeneticaDeOriana := 0.
-	cantidadDeOrugas := 1.
-	cantidadDeHuevosDeAvispas := 1.
-	cantidadDePolillas := 2.
+	cantidadDeOrugas := 0.
+	cantidadDeHuevosDeAvispas := 0.
+	cantidadDePolillas := 0.
 	cantidadDeHuevosConLaFirmaGeneticaDeOrnella := 0.
-	cantidadDeHuevosConLaFirmaGeneticaDeLara := 1.! !
+	cantidadDeHuevosConLaFirmaGeneticaDeLara := 0.! !
 
 
 !classDefinition: #LaAvispaLara category: 'AvispasYAbejasParte2'!
@@ -99,23 +147,23 @@ LaAvispaLara class
 habitat
 	^HabitatDeAvispas! !
 
-!LaAvispaLara class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 10:52:24'!
+!LaAvispaLara class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:31:47'!
 intentarReproducirse
 
-	(self habitat cantidadDeHuevosConLaFirmaGeneticaDeOriana) >= 1 ifTrue: [self seRobaUnHuevoConFirmaGeneticaDeOriana].
-	(self habitat cantidadDeHuevosConLaFirmaGeneticaDePolly) >= 1 ifTrue: [self seRobaUnHuevoConFirmaGeneticaDePolly].! !
+	self habitat hayHuevosConLaFirmaGeneticaDeOriana ifTrue: [self seRobaUnHuevoConFirmaGeneticaDeOriana].
+	self habitat hayHuevosConLaFirmaGeneticaDePolly ifTrue: [self seRobaUnHuevoConFirmaGeneticaDePolly].! !
 
-!LaAvispaLara class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 10:48:17'!
+!LaAvispaLara class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:32:28'!
 seRobaUnHuevoConFirmaGeneticaDeOriana
 	
-	self habitat cantidadDeHuevosConLaFirmaGeneticaDeLara: self habitat cantidadDeHuevosConLaFirmaGeneticaDeLara + 1.
-	self habitat cantidadDeHuevosConLaFirmaGeneticaDeOriana: self habitat cantidadDeHuevosConLaFirmaGeneticaDeOriana - 1.! !
+	self habitat incrementaCantidadDeHuevosConLaFirmaGeneticaDeLara.
+	self habitat decreceCantidadDeHuevosConLaFirmaGeneticaDeOriana.! !
 
-!LaAvispaLara class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 10:48:40'!
+!LaAvispaLara class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:32:50'!
 seRobaUnHuevoConFirmaGeneticaDePolly
 	
-	self habitat cantidadDeHuevosConLaFirmaGeneticaDeLara: self habitat cantidadDeHuevosConLaFirmaGeneticaDeLara + 1.
-	self habitat cantidadDeHuevosConLaFirmaGeneticaDePolly: self habitat cantidadDeHuevosConLaFirmaGeneticaDePolly - 1.! !
+	self habitat incrementaCantidadDeHuevosConLaFirmaGeneticaDeLara.
+	self habitat decreceCantidadDeHuevosConLaFirmaGeneticaDePolly.! !
 
 
 !classDefinition: #LaAvispaOriana category: 'AvispasYAbejasParte2'!
@@ -135,16 +183,17 @@ LaAvispaOriana class
 habitat
 	^HabitatDeAvispas! !
 
-!LaAvispaOriana class methodsFor: 'as yet unclassified' stamp: 'JSB 4/24/2022 19:35:04'!
+!LaAvispaOriana class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 11:42:04'!
 intentarReproducirse
 
-	(self habitat cantidadDeOrugas) >= 1 ifTrue: [self seReproduce].! !
+	self habitat hayOrugas ifTrue: [self seReproduce]! !
 
-!LaAvispaOriana class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 10:14:04'!
+!LaAvispaOriana class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:09:59'!
 seReproduce
-	self habitat cantidadDeHuevosDeAvispas: self habitat cantidadDeHuevosDeAvispas + 1.
-	self habitat cantidadDeHuevosConLaFirmaGeneticaDeOriana: self habitat cantidadDeHuevosConLaFirmaGeneticaDeOriana + 1.
-	self habitat cantidadDeOrugas: self habitat cantidadDeOrugas - 1.! !
+
+	self habitat incrementaCantidadDeHuevosDeAvispas.
+	self habitat incrementaCantidadDeHuevosConLaFirmaGeneticaDeOriana.
+	self habitat decreceCantidadDeOrugas.! !
 
 
 !classDefinition: #LaAvispaOrnella category: 'AvispasYAbejasParte2'!
@@ -172,16 +221,16 @@ LaAvispaPolly class
 habitat
 	^HabitatDeAvispas! !
 
-!LaAvispaPolly class methodsFor: 'as yet unclassified' stamp: 'JSB 4/24/2022 19:47:12'!
+!LaAvispaPolly class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:15:10'!
 intentarReproducirse
 
-	(self habitat cantidadDePolillas) >= 1 ifTrue: [self seReproduce].! !
+	self habitat hayPolillas ifTrue: [self seReproduce].! !
 
-!LaAvispaPolly class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 10:23:27'!
+!LaAvispaPolly class methodsFor: 'as yet unclassified' stamp: 'JSB 4/25/2022 12:16:54'!
 seReproduce
-	self habitat cantidadDeHuevosDeAvispas: self habitat cantidadDeHuevosDeAvispas + 1.
-	self habitat cantidadDeHuevosConLaFirmaGeneticaDePolly: self habitat cantidadDeHuevosConLaFirmaGeneticaDeOriana + 1.
-	self habitat cantidadDePolillas: self habitat cantidadDePolillas - 1.! !
+	self habitat incrementaCantidadDeHuevosDeAvispas.
+	self habitat incrementaCantidadDeHuevosConLaFirmaGeneticaDePolly.
+	self habitat decreceCantidadDePolillas.! !
 
 
 !classDefinition: #PruebasReproduccionDeAvispas category: 'AvispasYAbejasParte2'!
@@ -461,7 +510,7 @@ retrocederElHabitatAlInicioDeLosTiempos
 	self habitat cantidadDeHuevosConLaFirmaGeneticaDeLara:0.! !
 
 
-!PruebasReproduccionDeAvispas class methodsFor: '--** private fileout/in **--' stamp: 'JSB 4/25/2022 10:52:51'!
+!PruebasReproduccionDeAvispas class methodsFor: '--** private fileout/in **--' stamp: 'JSB 4/25/2022 12:48:07'!
 initializeCollaboratorsFromFile
 	"Auto generated method for loading purposes - Do not modify it"
 
